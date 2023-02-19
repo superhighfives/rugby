@@ -1,0 +1,12 @@
+%app,
+#app {
+  height: 100%;
+}
+
+%app {
+  overflow: hidden;
+}
+
+.app {
+  @extend %app;
+}

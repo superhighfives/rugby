@@ -1,0 +1,9 @@
+%unsupported {
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 40px;
+}
+
+.unsupported {
+  @extend %unsupported;
+}

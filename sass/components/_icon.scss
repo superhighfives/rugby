@@ -1,0 +1,16 @@
+%icon--interaction {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 5000;
+  animation: squiggle-and-fade-out 2s linear 1s both 2;
+  width: 50px;
+  height: auto;
+  margin-left: -50px;
+  margin-top: -24px;
+  pointer-events: none;
+}
+
+.icon--interaction {
+  @extend %icon--interaction;
+}

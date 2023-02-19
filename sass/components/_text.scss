@@ -1,0 +1,101 @@
+.text--xxl {
+  @include type(72);
+}
+.text--xl {
+  @include type(36);
+}
+.text--lg {
+ @include type(24); 
+}
+.text--md {
+  @include type(18);
+}
+.text--sm {
+  @include type(14);
+}
+.text--xs {
+  @include type(12); 
+}
+.text--lh-xxl {
+  @include line-height(72);
+}
+.text--lh-xl {
+  @include line-height(36);
+}
+.text--lh-lg {
+ @include line-height(24); 
+}
+.text--lh-md {
+  @include line-height(18);
+}
+.text--lh-sm {
+  @include line-height(14);
+}
+.text--lh-xs {
+  @include line-height(12); 
+}
+.text--uppercase {
+  text-transform: uppercase;
+}
+.text--underline {
+  text-decoration: underline;
+}
+.text--no-underline {
+  text-decoration: none;
+}
+.text--sans {
+  font-family: $font-sans;
+}
+.text--serif {
+  font-family: $font-serif;
+}
+.text--left {
+  text-align: left;
+}
+.text--center {
+  text-align: center;
+}
+.text--right {
+  text-align: right;
+}
+.text--bold {
+  font-weight: 700;
+}
+.text--regular {
+  font-weight: 400;
+}
+.text--italic {
+  font-style: italic;
+}
+.text--shadow {
+  text-shadow: 0 1px rgba($color-black, 0.5);
+}
+.text--strikethrough {
+  text-decoration: line-through;
+}
+.text--spaced {
+  letter-spacing: 0.25rem;
+}
+.text--light-grey {
+  color: $color-light-grey;
+}
+.text--white {
+  color: $color-white;
+}
+.text--white-on-hover {
+  transition: color 0.3s;
+  &:hover, &:active, &:focus {
+    color: $color-white;
+  }
+}
+.text--link {
+  transition: border-bottom-color 0.3s, color 0.3s;
+  display: inline-block;
+  color: rgba($color-highlight, 0.7);
+  text-decoration: none;
+  border-bottom: 1px solid rgba($color-highlight, 0.4);
+  line-height: 100%;
+  &:hover {
+    border-bottom-color: $color-highlight;
+  }
+}

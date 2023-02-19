@@ -1,0 +1,12 @@
+%header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fade-in 0.3s;
+}
+
+.header {
+  @extend %header;
+}

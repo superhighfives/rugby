@@ -1,0 +1,17 @@
+%list {
+  &%list--horizontal {
+    padding: 0;
+    list-style: none;
+    > * {
+      display: inline;
+    }
+  }
+}
+
+.list {
+  @extend %list;
+}
+
+.list--horizontal {
+  @extend %list--horizontal;
+}

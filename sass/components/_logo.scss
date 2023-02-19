@@ -1,0 +1,19 @@
+%logo {
+  width: 16px;
+  height: auto;
+  margin-bottom: 20px;
+  &%logo--centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+  }
+}
+
+.logo {
+  @extend %logo;
+}
+
+.logo--centered {
+  @extend %logo--centered;
+}

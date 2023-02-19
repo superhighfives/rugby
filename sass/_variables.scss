@@ -1,0 +1,31 @@
+$color-white                   : #fff;
+$color-black                   : #000;
+$color-dark-grey               : #222;
+$color-mid-grey                : #444;
+$color-light-grey              : #999;
+$color-mid-white               : #e7e7e7;
+$color-off-white               : #f7f7f7;
+$color-highlight               : #fff;
+
+$color-primary                 : $color-white;
+$color-link                    : $color-black;
+
+$background-color              : $color-black;
+$text-color                    : $color-white;
+
+$font-serif                    : 'Playfair Display', serif;
+$font-sans                     : Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+$z-background                  : 10;
+$z-midground                   : 20;
+$z-foreground                  : 30;
+$z-modal                       : 40;
+$z-overlay                     : 50;
+
+// Breakpoints
+$breakpoint-xs                 : "(max-width: 767px)";
+$breakpoint-sm                 : "(min-width: 768px) and (max-width: 991px)";
+$breakpoint-md                 : "(min-width: 992px) and (max-width: 1199px)";
+$breakpoint-lg                 : "(min-width: 1200px)";
+$breakpoint-sm-lg              : "(min-width: 768px)";
+$breakpoint-md-lg              : "(min-width: 992px)";

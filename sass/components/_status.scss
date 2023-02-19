@@ -1,0 +1,19 @@
+%status {
+  %status__percentage {
+    transition: width 5s, opacity 0.3s;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: $color-highlight;
+    z-index: 200;
+  }
+}
+
+.status {
+  @extend %status;
+}
+
+.status__percentage {
+  @extend %status__percentage;
+}

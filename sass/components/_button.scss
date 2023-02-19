@@ -1,0 +1,23 @@
+%button {
+  display: inline-block;
+  animation: fade-in 0.3s forwards;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 0.5rem 1rem;
+  color: $color-black;
+  background-color: $color-highlight;
+  text-transform: uppercase;
+  @include type(14); 
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  box-shadow: inset 0 0 0 2px $color-highlight, 0 2px 2px rgba($color-black, 0.25);
+  font-weight: bold;
+  font-family: $font-sans;
+  cursor: pointer;
+  &:hover, &:active, &:focus {
+    background-color: rgba($color-highlight, 0);
+  }
+}
+
+.button {
+  @extend %button;
+}

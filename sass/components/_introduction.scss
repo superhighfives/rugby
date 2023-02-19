@@ -1,0 +1,43 @@
+%introduction {
+  animation: fade-in 0.5s forwards, fade-out 0.5s forwards 15.5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  perspective: 100px;
+  > * {
+    opacity: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    max-width: 500px;
+    text-align: center;
+    font-family: $font-serif;
+  }
+  %introduction__title {
+    animation: fade-in 0.5s forwards, rotate 16s;
+    @include type(14);
+  }
+  %introduction__description {
+    animation: fade-in 0.5s forwards 8s, rotate 16s forwards 8s;
+    color: $color-off-white;
+    @include type(12);
+  }
+}
+
+.introduction {
+  @extend %introduction;
+}
+
+.introduction__title {
+  @extend %introduction__title;
+}
+
+.introduction__description {
+  @extend %introduction__description;
+}

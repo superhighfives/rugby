@@ -1,0 +1,50 @@
+%navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  margin: 1rem;
+  > * {
+    display: inline-block;
+  }
+  > * + * {
+    margin-left: 1rem;
+  }
+  %navigation__item {
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+    padding-bottom: 0.25rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    @include type(12);
+    color: $color-highlight;
+    text-decoration: none;
+    &:before {
+      transition: width 0.3s;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: $color-highlight;
+    }
+    @media #{$breakpoint-sm-lg} {
+      &:hover {
+        &:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.navigation {
+  @extend %navigation;
+}
+
+.navigation__item {
+  @extend %navigation__item;
+}

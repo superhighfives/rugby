@@ -1,0 +1,322 @@
+%grid {
+  transition: opacity 0.3s, transform 0.3s;
+  transform: scale(1);
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  &%grid--playing {
+    opacity: 1;
+    %grid__item {
+      display: none;
+      &:before {
+        box-shadow: inset 0 0 0 8px black;
+      }
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      min-height: 100vh;
+      %grid__video,
+      %grid__image {
+        animation: none !important;
+      }
+      %grid__background {
+        animation: none !important;
+      }
+    }
+    %grid__video,
+    %grid__image,
+    %grid__background {
+      opacity: 0;
+    }
+    %grid__item--active {
+      opacity: 0;
+    }
+    %grid__item--current {
+      display: flex;
+      z-index: 500;
+      animation: fade-in 0.1s forwards;
+      perspective: 100px;
+      %grid__video,
+      %grid__image {
+        opacity: 0.4;
+      }
+      %grid__background {
+        opacity: 0;
+      }
+      %grid__content {
+        animation: fade-in 0.3s forwards 0.3s, rotate 8s, fade-out 4s forwards 4s;
+      }
+      %grid__keyword {
+        animation: highlight-keyword 1s forwards 1s;
+        &:before {
+          animation: full-width 1s forwards 1s;
+        }
+      }
+      %grid__source {
+        opacity: 0;
+        animation: fade-in 1s forwards 2s;
+      }
+    }
+  }
+  .app--finished & {
+    animation: fade-in 0.3s forwards;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    position: fixed;
+    %grid__item {
+      &:hover {
+        %grid__video,
+        %grid__image {
+          opacity: 0.4;
+        }
+      }
+      align-items: flex-end;
+      padding-bottom: 35px;
+      %grid__background {
+        opacity: 0.2;
+      }
+      user-select: none;
+      touch-callout: none;
+      min-height: 50vh;
+      %grid__video,
+      %grid__image {
+        animation: none !important;
+        opacity: 0.5;
+      }
+      %grid__background {
+        opacity: 0;
+        animation: none !important;
+      }
+      %grid__content {
+        &:before {
+          content: "";
+          background: linear-gradient(rgba($color-black, 0), rgba($color-black, 0.5));
+          height: 30%;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          position: absolute;
+          z-index: -1;
+        }
+        opacity: 1;
+        position: static;
+        text-shadow: 0 1px rgba($color-black, 1);
+        color: rgba($color-white, 0.8);
+      }
+      %grid__text {
+        display: inline;
+        margin: 0;
+      }
+      %grid__keyword {
+        border-bottom: 1px solid $color-highlight;
+      }
+      %grid__source {
+        &:before {
+          content: none;
+        }
+        transform: translateX(0);
+        position: absolute;
+        bottom: 0rem;
+        right: 0rem;
+        left: 0rem;
+        width: 100%;
+        display: inline-block;
+        left: auto;
+        background: none;
+        color: rgba($color-white, 0.5);
+        padding: 10px;
+        margin: 0 auto;
+      }
+    }
+    %grid__highlight {
+      position: static;
+      color: $color-white;
+    }
+  }
+  %grid__item {
+    &:before {
+      content: "";
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 0 0 1px black;
+    }
+    transition: transform 0.5s;
+    position: relative;
+    min-height: 0;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background: black;
+    color: $color-light-grey;
+    %grid__video,
+    %grid__image,
+    %grid__background {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    %grid__video,
+    %grid__image {
+      transition: opacity 1s;
+    }
+    %grid__video {
+      object-fit: cover;
+    }
+    %grid__image,
+    %grid__background {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    &%grid__item--loaded {
+      animation: fade-in 1s forwards;
+      @for $i from 1 through 32 {
+        &:nth-child(#{$i}) {
+          %grid__video,
+          %grid__image {
+            animation: fade-in-and-out 7.5s both #{calc($i / 10) + 1}s infinite;
+          }
+        }
+      }
+    }
+  }
+  %grid__content {
+    // transition: opacity 0.3s;
+    position: relative;
+    opacity: 0;
+    z-index: 1;
+    @include type(14);
+    font-family: $font-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    max-width: 80%;
+    text-align: center;
+    text-shadow: 0 1px rgba($color-black, 0.25);
+  }
+  %grid__text {
+    display: inline;
+  }
+  %grid__highlight {
+    margin: 0 0.1rem;
+    position: relative;
+    white-space: nowrap;
+  }
+  %grid__keyword {
+    text-decoration: none;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 0;
+      background: $color-white;
+    }
+  }
+  %grid__source {
+    &:before {
+      content: "";
+      border-style: solid;
+      border-width: 0 5px 5px 5px;
+      transform: rotate(180deg);
+      border-color: transparent transparent $color-highlight transparent;
+      position: absolute;
+      left: 50%;
+      margin-left: -5px;
+      top: -11px;
+    }
+    font-weight: bold;
+    font-family: $font-sans;
+    position: absolute;
+    z-index: 501;
+    left: 50%;
+    bottom: -25px;
+    transform: translateX(-50%);
+    @include type(10);
+    white-space: nowrap;
+    opacity: 0.75;
+    background: $color-white;
+    padding: 0 0.25rem;
+    box-shadow: 0 1px 2px rgba($color-black, 0.5);
+    color: $color-mid-grey;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    text-shadow: none;
+  }
+}
+
+.grid {
+  @extend %grid;
+}
+
+.grid--playing {
+  @extend %grid--playing;
+}
+
+.grid__item {
+  @extend %grid__item;
+}
+
+.grid__item--loaded {
+  @extend %grid__item--loaded;
+}
+
+.grid__item--active {
+  @extend %grid__item--active;
+}
+
+.grid__item--current {
+  @extend %grid__item--current;
+}
+
+.grid__content {
+  @extend %grid__content;
+}
+
+.grid__highlight {
+  @extend %grid__highlight;
+}
+
+.grid__text {
+  @extend %grid__text;
+}
+
+.grid__keyword {
+  @extend %grid__keyword;
+}
+
+.grid__source {
+  @extend %grid__source;
+}
+
+.grid__image {
+  @extend %grid__image;
+}
+
+.grid__video {
+  @extend %grid__video;
+}
+
+.grid__background {
+  @extend %grid__background;
+}

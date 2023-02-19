@@ -1,0 +1,10 @@
+%image--small-on-xs {
+  @media #{$breakpoint-xs} {
+    width: 75%;
+    height: auto;
+  }
+}
+
+.image--small-on-xs {
+  @extend %image--small-on-xs;
+}

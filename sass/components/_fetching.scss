@@ -1,0 +1,65 @@
+%fetching {
+  position: relative;
+  color: $color-light-grey;
+  text-transform: uppercase;
+  @include type(12);
+  letter-spacing: 0.1rem;
+  min-height: 35px;
+  &%fetching--complete {
+    animation: fade-out 0.3s linear 0.3s forwards;
+  }
+  %fetching__item {
+    transition: color 0.5s;
+    color: $color-white;
+    position: relative;
+    &:before {
+      transition: width 1s;
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: $color-light-grey;
+    }
+    &%fetching__item--complete {
+      color: $color-light-grey;
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+  %fetching__waiting {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: $color-light-grey;
+    opacity: 0;
+    animation: fade-in 0.3s linear 8s forwards;
+    @include type(10);
+  }
+}
+
+.fetching {
+  @extend %fetching;
+}
+
+.fetching--complete {
+  @extend %fetching--complete;
+}
+
+.fetching__item {
+  @extend %fetching__item;
+}
+
+.fetching__item--complete {
+  @extend %fetching__item--complete;
+}
+
+.fetching__waiting {
+  @extend %fetching__waiting;
+}
