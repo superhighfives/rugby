@@ -41,7 +41,7 @@ export default class App extends React.Component {
   componentDidMount() {
     if(Modernizr.flexbox) {
       // Get data
-      let gif_url = window.location.toString().match(/localhost/) && !window.location.toString().match(/\?live=1/) ? "http://localhost:5000/data.json?callback=JSON_CALLBACK" : "https://rugby-server.herokuapp.com/data.json?callback=JSON_CALLBACK";
+      let gif_url = window.location.toString().match(/localhost/) && !window.location.toString().match(/\?live=1/) ? "http://localhost:5000/data.json?callback=JSON_CALLBACK" : "https://rugby-server.superhighfives.workers.dev/data.json?callback=JSON_CALLBACK";
       json(gif_url).then((res) => {
         Actions.dataLoaded()
         let data = res.map((lyric) => {
