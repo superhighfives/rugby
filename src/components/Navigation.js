@@ -8,7 +8,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <header className="navigation">
-        {false && <a className="navigation__item" href="http://music.wearebrightly.com" target="_blank">Bandcamp</a>}
+        {false && <a className="navigation__item" href="https://wewerebrightly.bandcamp.com" target="_blank">Bandcamp</a>}
         <a className="navigation__item" onClick={e => this.handleAbout(e)}>About</a>
       </header>
     )
